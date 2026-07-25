@@ -1,0 +1,72 @@
+generated: '2026-07-25'
+method: searched
+source: live probes of Acturis Group hosts
+note: >-
+  Probed the standard /.well-known/ discovery surface plus /llms.txt and the two
+  common root spec paths across every Acturis Group host that resolves. Nothing
+  returned 200. The 403s are the WordPress/Flywheel edge refusing unknown paths
+  (the same hosts return 404 for unknown paths under /.well-known/ on
+  www.acturis.com), not a gated document. No WellKnown or SecurityTxt pointer is
+  emitted because nothing was found. developer./developers./docs./api./login./
+  portal./connect.acturis.com do not resolve at all (see review.yml probes);
+  support.acturis.com is referenced from acturis.ca but does not resolve
+  publicly either.
+hosts:
+- host: https://www.acturis.com
+  documents:
+  - {path: /.well-known/security.txt, status: 404}
+  - {path: /.well-known/openid-configuration, status: 404}
+  - {path: /.well-known/oauth-authorization-server, status: 404}
+  - {path: /.well-known/api-catalog, status: 404}
+  - {path: /.well-known/ai-plugin.json, status: 404}
+  - {path: /llms.txt, status: 404}
+  - {path: /openapi.json, status: 403}
+  - {path: /swagger.json, status: 403}
+- host: https://acturis.ca
+  documents:
+  - {path: /.well-known/security.txt, status: 404}
+  - {path: /.well-known/openid-configuration, status: 403}
+  - {path: /.well-known/oauth-authorization-server, status: 403}
+  - {path: /.well-known/api-catalog, status: 403}
+  - {path: /.well-known/ai-plugin.json, status: 403}
+  - {path: /llms.txt, status: 404}
+  - {path: /openapi.json, status: 403}
+  - {path: /swagger.json, status: 403}
+- host: https://acturisgroup.com
+  documents:
+  - {path: /.well-known/security.txt, status: 404}
+  - {path: /.well-known/openid-configuration, status: 403}
+  - {path: /.well-known/oauth-authorization-server, status: 403}
+  - {path: /.well-known/api-catalog, status: 403}
+  - {path: /.well-known/ai-plugin.json, status: 403}
+  - {path: /llms.txt, status: 404}
+  - {path: /openapi.json, status: 403}
+  - {path: /swagger.json, status: 403}
+- host: https://brovada.com
+  documents:
+  - {path: /.well-known/security.txt, status: 404}
+  - {path: /.well-known/openid-configuration, status: 403}
+  - {path: /.well-known/oauth-authorization-server, status: 403}
+  - {path: /.well-known/api-catalog, status: 403}
+  - {path: /.well-known/ai-plugin.json, status: 403}
+  - {path: /llms.txt, status: 404}
+  - {path: /openapi.json, status: 403}
+  - {path: /swagger.json, status: 403}
+other_surfaces:
+- path: https://www.acturis.com/wp-json/
+  status: 200
+  kind: WordPress REST API
+  note: >-
+    The marketing sites (www.acturis.com and acturis.ca) expose the default
+    WordPress REST API of their CMS. This is the website content API, not an
+    Acturis product API, and it is deliberately NOT listed in apis[] — listing it
+    would misrepresent the company's API surface.
+- path: https://acturis.ca/wp-json/
+  status: 200
+  kind: WordPress REST API
+- path: https://www.acturis.com/robots.txt
+  status: 200
+  note: Default Flywheel robots file; no Sitemap or AI-crawler directives beyond calendar excludes.
+- path: https://www.acturis.com/sitemap_index.xml
+  status: 200
+  note: Yoast index — post/page/casestudy/job/faq/story/category sitemaps; no developer-related URL in any of them.

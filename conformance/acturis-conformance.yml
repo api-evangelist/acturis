@@ -1,0 +1,98 @@
+generated: '2026-07-25'
+method: searched
+source: https://www.acturis.com/product/
+note: >-
+  Acturis publishes no machine-readable API contract, so nothing here is derived
+  from a spec — every entry is either a compliance/standards claim Acturis or a
+  standards body publishes, or an honest negative. Two claims are load-bearing:
+  the UK platform page advertises independent audit and accreditation to PCI DSS
+  and SOC 1 ISAE 3402, and Acturis Canada earned CSIO's API Security Standards
+  Certification (2026-01-26) with an overall Gold CSIO Standards Certification
+  Rating. Because a published compliance posture genuinely exists, a
+  `type: Compliance` pointer is emitted at the product page and a
+  `type: Certifications` pointer at the CSIO announcement.
+standards:
+- id: pci-dss
+  conforms: true
+  evidence: >-
+    "backed up by independent audit and accreditations, like PCI DSS and SOC1
+    ISAE 3402" — https://www.acturis.com/product/
+- id: soc1-isae-3402
+  conforms: true
+  evidence: >-
+    Same product-page statement; SOC 1 / ISAE 3402 service-organisation control
+    reporting over the hosted Acturis platform.
+- id: gdpr
+  conforms: true
+  evidence: >-
+    "we store data ... at our sites in London and Amsterdam, in a manner that is
+    entirely compliant with data protection law, i.e. GDPR, in the UK and EU" —
+    https://www.acturis.com/insurer/
+- id: csio-api-security-standards
+  conforms: true
+  certified: true
+  certification_date: '2026-01-26'
+  evidence: >-
+    Acturis Canada Inc. earned CSIO's API Security Standards Certification for
+    the Acturis Broker Management System — "using a standard authentication and
+    authorization model when brokers access API endpoints and offering
+    additional protection for data exchanged between Acturis' BMS and an
+    insurer's system" —
+    https://acturis.ca/blog/2026/01/26/acturis-canada-inc-earns-csios-api-security-standards-certification-and-a-gold-standards-certification-rating/
+  scope: Acturis Canada (Acturis BMS), not the UK platform
+- id: csio-standards-certification
+  conforms: true
+  rating: Gold
+  evidence: >-
+    Overall CSIO Standards Certification Rating raised to Gold, following eDocs
+    Certification plus the API Security Standards Certification (2026-01-26).
+  scope: Acturis Canada
+- id: csio-xml
+  conforms: true
+  evidence: >-
+    CSIO certifications above are against the CSIO XML / eDocs data standards
+    for the Canadian P&C broker channel.
+- id: acord
+  conforms: partial
+  evidence: >-
+    No ACORD reference on any Acturis UK surface. ACORD lineage is indirect, via
+    Canada: the CSIO XML Standard is licensed to CSIO by ACORD.
+- id: polaris-standards
+  conforms: true
+  evidence: >-
+    Polaris UK lists Acturis as an integrated broker system on its imarket page
+    (https://www.polaris.co.uk/acturis/); the Acturis timeline records "May 2005
+    Acturis facilitates first insurer integration with industry portal iMarket".
+    Polaris Standards are the UK general-insurance code lists, question sets and
+    data dictionaries carried over EDI/XML/JSON messaging.
+- id: imarket
+  conforms: true
+  evidence: Acturis brokers trade on the Polaris imarket digital-trading service.
+- id: openapi
+  conforms: false
+  evidence: No OpenAPI/Swagger document published on any Acturis host.
+- id: asyncapi
+  conforms: false
+  evidence: No event catalog, AsyncAPI document or webhook reference published.
+- id: oauth2
+  conforms: unknown
+  evidence: >-
+    CSIO's API Security Standards imply a standard authorization model for the
+    Canadian BMS API surface, but Acturis publishes no auth documentation, no
+    OIDC discovery document and no token endpoint on any resolvable host, so the
+    flow cannot be asserted.
+- id: oidc
+  conforms: false
+  evidence: /.well-known/openid-configuration returns 404/403 on every Acturis host.
+- id: rfc9457-problem-details
+  conforms: false
+  evidence: No public error contract of any kind.
+- id: rfc9116-security-txt
+  conforms: false
+  evidence: /.well-known/security.txt returns 404 on all four Acturis Group hosts.
+- id: rest
+  conforms: unknown
+  evidence: >-
+    Marketing copy claims an "API-enabled platform" and "API capabilities" but no
+    base URL, endpoint, media type or reference is published; the only named API
+    (the Aviva claims Broker API, 2024-12-13) is enabled through account managers.

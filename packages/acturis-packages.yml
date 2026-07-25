@@ -1,0 +1,19 @@
+generated: '2026-07-25'
+method: searched
+source: public package-registry searches
+note: >-
+  Searched npm, PyPI, NuGet and GitHub for first-party Acturis client libraries
+  and found none. npm search "acturis" = 0 results; PyPI /pypi/acturis/json =
+  404; NuGet query "acturis" = 0 hits; GitHub repo search returns 8 unrelated
+  third-party/personal repos (kata solutions, student PoCs) and no acturis or
+  acturis-group organisation (api.github.com/orgs/acturis = 404). Acturis ships
+  no SDK because it ships no public API — integration is delivered as a
+  commercial connection, not a library. No Packages and no SDKs pointer is
+  emitted.
+registries_probed:
+- {registry: npm, query: acturis, results: 0}
+- {registry: pypi, package: acturis, status: 404}
+- {registry: nuget, query: acturis, results: 0}
+- {registry: github-org, org: acturis, status: 404}
+- {registry: github-search, query: acturis, results: 8, note: all third-party/unrelated}
+packages: []

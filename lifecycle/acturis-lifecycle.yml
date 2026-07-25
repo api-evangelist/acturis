@@ -1,0 +1,36 @@
+generated: '2026-07-25'
+method: searched
+source: https://www.acturis.com/product/
+note: >-
+  Searched every resolvable Acturis Group host for a versioning policy, a
+  deprecation/sunset policy, an SLA and a status page. None is published.
+  status.acturis.com and trust.acturis.com do not resolve; there is no
+  /status, /sla or /deprecation page in the sitemap (14 pages, none technical).
+  The only lifecycle statement Acturis publishes is a SaaS release model —
+  "continuous updates and improvements with zero disruption" and "redundancy and
+  failover systems to deliver near-100% availability" on the product page — an
+  availability claim, not an SLA document. No StatusPage and no Deprecation
+  pointer is emitted, because neither artifact exists.
+release_model:
+  scheme: continuous-saas
+  detail: >-
+    Single multi-tenant hosted platform in a private cloud; Acturis states it
+    ships continuous updates with zero disruption to broker tenants, so there are
+    no customer-pinned versions to deprecate publicly.
+  docs: https://www.acturis.com/product/
+versioning:
+  scheme: null
+  detail: No API versioning scheme is published (no public API).
+  docs: null
+deprecation:
+  policy_url: null
+  sunset_header: false
+sla:
+  url: null
+  uptime_target: null
+  claim: near-100% availability (marketing claim on https://www.acturis.com/product/, not a contractual SLA page)
+status_page: null
+status_page_probes:
+- {url: 'https://status.acturis.com', status: 0, note: DNS does not resolve}
+- {url: 'https://trust.acturis.com', status: 0, note: DNS does not resolve}
+deprecated_operations: []

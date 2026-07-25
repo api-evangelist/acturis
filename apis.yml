@@ -58,14 +58,43 @@ common:
   url: https://www.acturis.com/about-acturis/
 - type: Product
   url: https://www.acturis.com/product/
+- type: Solutions
+  url: https://www.acturis.com/sector-specific-solutions/
 - type: Contact
   url: https://www.acturis.com/contact/
+- type: FAQ
+  url: https://www.acturis.com/faqs/
+- type: CaseStudies
+  url: https://www.acturis.com/case-studies/
+- type: Resources
+  url: https://www.acturis.com/brochures/
+- type: Careers
+  url: https://www.acturis.com/careers/
+- type: Accessibility
+  url: https://www.acturis.com/accessibility-statement/
 - type: Blog
   url: https://www.acturis.com/news/
 - type: BlogRSS
   url: https://www.acturis.com/feed/
 - type: PrivacyPolicy
   url: https://www.acturis.com/acturis-privacy-policy/
+- type: Compliance
+  url: https://www.acturis.com/product/
+  name: Independent audit and accreditations — PCI DSS, SOC 1 ISAE 3402
+- type: Certifications
+  url: https://acturis.ca/blog/2026/01/26/acturis-canada-inc-earns-csios-api-security-standards-certification-and-a-gold-standards-certification-rating/
+  name: CSIO API Security Standards Certification + Gold Standards Certification Rating (Acturis Canada, 2026-01-26)
+- type: Standards
+  url: https://www.polaris.co.uk/acturis/
+  name: Polaris imarket — Acturis for Brokers
+- type: Conformance
+  url: conformance/acturis-conformance.yml
+- type: Lifecycle
+  url: lifecycle/acturis-lifecycle.yml
+- type: DomainSecurity
+  url: security/acturis-domain-security.yml
+- type: LLMsTxt
+  url: llms/acturis-llms.txt
 - type: ParentOrganization
   url: https://acturisgroup.com/
 - type: LinkedIn

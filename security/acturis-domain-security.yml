@@ -1,0 +1,57 @@
+generated: '2026-07-25'
+method: probed
+source: live DNS/TLS/HTTP probes of apis.yml + Acturis Group hosts
+note: >-
+  The primary marketing host was probed by 0-working/probe-domain-security.py;
+  the three sibling Acturis Group hosts (Acturis Canada, Acturis Group, Brovada)
+  were probed with the same routines and added by hand because they hang off
+  ParentOrganization/related links rather than a Website/baseURL pointer. There
+  is no API host to probe — Acturis publishes no public API base URL. Absence of
+  a record (no CAA on any domain, no HSTS, DMARC p=none or absent) is recorded
+  as observed, not inferred.
+hosts:
+- host: www.acturis.com
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Oct 18 19:59:13 2026 GMT
+  hsts: false
+- host: acturis.ca
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Oct  1 08:43:48 2026 GMT
+  hsts: null
+  note: HEAD probe returned no Strict-Transport-Security header (request blocked by the host).
+- host: acturisgroup.com
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Aug 28 17:41:54 2026 GMT
+  hsts: null
+  note: HEAD probe returned no Strict-Transport-Security header (request blocked by the host).
+- host: brovada.com
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Aug 29 04:24:34 2026 GMT
+  hsts: false
+domains:
+- domain: acturis.com
+  dnssec: false
+  caa: []
+  spf: true
+  dmarc: true
+  dmarc_policy: none
+- domain: acturis.ca
+  dnssec: false
+  caa: []
+  spf: true
+  dmarc: true
+  dmarc_policy: none
+- domain: acturisgroup.com
+  dnssec: false
+  caa: []
+  spf: true
+  dmarc: false
+- domain: brovada.com
+  dnssec: false
+  caa: []
+  spf: true
+  dmarc: false

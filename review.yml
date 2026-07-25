@@ -1,0 +1,245 @@
+aid: acturis
+name: Acturis
+review:
+  question: Does Acturis publish a public, self-serve developer portal or downloadable API definitions?
+  answer: false
+  date: '2026-07-25'
+  reviewer: API Evangelist
+  homeMarket: United Kingdom
+  tier: agency-brokerage-tech
+findings:
+  summary: |
+    Acturis has no public developer surface. It is a UK insurance SaaS platform
+    for brokers, insurers and MGAs — a system of record and an e-trade hub —
+    and every integration path it offers is commercial and partner-gated.
+    acturis.com is a small WordPress marketing site (14 pages in
+    page-sitemap.xml) with no /developers, /api, /developer or /integrations
+    section, and no developer subdomain resolves. The word "API" appears on the
+    site only as marketing adjective: the insurer page says "our API-enabled
+    platform will integrate seamlessly with any existing or future systems you
+    use" and the commercial-lines page says "our API capabilities and two-way
+    integration with third parties mean that you never have to leave the
+    Acturis system". Neither is backed by reference documentation.
+
+    The only concretely named API is the Aviva claims Broker API announced
+    2024-12-13, built by Aviva in partnership with Acturis. It is a one-way
+    transfer of individual claim records and updates from Aviva's claims system
+    into a broker's Acturis system, covering personal and commercial lines
+    motor, property and liability claims. It is free to brokers but enabled
+    only via an Aviva Claims Service Manager or an Acturis Account Manager —
+    partner registration, not signup. No endpoints, payloads, auth scheme or
+    specification are published.
+
+    The UK market seam matters here. There is no FCA open-insurance obligation,
+    so the machine-readable layer under UK broking is not a regulator's API but
+    Polaris Standards and the imarket digital-trading service — code lists,
+    question sets, data dictionaries and messaging in EDI, XML and JSON.
+    Acturis has traded on this since "May 2005 Acturis facilitates first
+    insurer integration with industry portal iMarket" (company timeline), and
+    Polaris lists Acturis among the integrated broker systems. That standards
+    work is broker- and insurer-facing and is entirely invisible from outside a
+    commercial relationship, which is exactly the UK pattern.
+  developerPortal:
+    url: ''
+    confirmed: false
+    classification: none
+    note: |
+      No developer portal of any kind exists — not even a login wall. Judged (d):
+      absent. The nearest thing is marketing copy on product pages.
+  probes:
+  - url: https://acturis.com
+    status: 200
+    note: Redirects to www; corporate marketing site.
+  - url: https://www.acturis.com
+    status: 200
+  - url: https://developer.acturis.com
+    status: 000
+    note: DNS does not resolve.
+  - url: https://developers.acturis.com
+    status: 000
+    note: DNS does not resolve.
+  - url: https://docs.acturis.com
+    status: 000
+    note: DNS does not resolve.
+  - url: https://api.acturis.com
+    status: 000
+    note: DNS does not resolve.
+  - url: https://login.acturis.com
+    status: 000
+    note: DNS does not resolve.
+  - url: https://portal.acturis.com
+    status: 000
+    note: DNS does not resolve.
+  - url: https://connect.acturis.com
+    status: 000
+    note: DNS does not resolve.
+  - url: https://www.acturis.com/developers
+    status: 404
+  - url: https://www.acturis.com/developer
+    status: 404
+  - url: https://www.acturis.com/api
+    status: 404
+  - url: https://www.acturis.com/integrations
+    status: 404
+  - url: https://www.acturis.com/partners
+    status: 200
+    note: Not a partner program page — a broker case study for the firm "Partners&".
+  - url: https://www.acturis.com/openapi.json
+    status: 404
+  - url: https://www.acturis.com/swagger.json
+    status: 404
+  - url: https://www.acturis.com/api-docs
+    status: 404
+  - url: https://www.acturis.com/.well-known/openid-configuration
+    status: 404
+  - url: https://www.acturis.com/.well-known/oauth-authorization-server
+    status: 404
+  - url: https://www.acturis.com/.well-known/security.txt
+    status: 404
+  - url: https://www.acturis.com/sitemap.xml
+    status: 200
+    note: Yoast index; page-sitemap.xml lists 14 pages, none developer-related.
+  - url: https://acturisgroup.com/
+    status: 200
+    note: Parent group; seven operating companies, 100,000+ users, 40+ countries.
+  - url: https://acturis.ca/
+    status: 200
+    note: Acturis Canada. No /developers (404), no /api (404).
+  - url: https://brovada.com/
+    status: 200
+    note: BrovadaOne Canadian connectivity, part of Acturis Group. No /api (404),
+      no /developers (404), no developer/docs/api subdomain resolves.
+  - url: https://api.github.com/orgs/acturis
+    status: 404
+    note: No public GitHub organization under acturis or acturis-group.
+  openAPI:
+    harvested: false
+    count: 0
+    note: |
+      No OpenAPI, Swagger, AsyncAPI, GraphQL SDL or .proto artifact is published
+      anywhere on acturis.com, acturisgroup.com, acturis.ca or brovada.com.
+      Nothing was saved because nothing real exists; the openapi/ directory is
+      deliberately absent rather than filled with reconstruction.
+  acordPosture: |
+    No ACORD reference found on acturis.com. The UK operation runs on Polaris
+    Standards / imarket instead — Polaris is the UK general-insurance
+    digital-trading standards body (code lists, question sets, data
+    dictionaries; EDI, XML and JSON messaging) and names Acturis as an
+    integrated broker system. ACORD lineage appears only through the Canadian
+    arm: Acturis Canada earned CSIO's API Security Standards Certification on
+    2026-01-26 and raised its overall CSIO Standards Certification Rating to
+    Gold, and the CSIO XML Standard is licensed to CSIO by ACORD. Short form:
+    "no ACORD reference in the UK; Polaris/imarket standards there, ACORD
+    lineage via CSIO XML + CSIO API Security Certification (Gold) in Canada".
+  insuranceVerbs:
+    quote:
+      exposed: false
+      note: Comparative quoting across an insurer panel happens inside the Acturis
+        UI and via imarket, not through any documented public API.
+    bind:
+      exposed: false
+      note: E-trade bind is a platform function behind a broker login, not a
+        published API.
+    issue:
+      exposed: false
+      note: Policy administration and document issue are platform functions; no
+        public interface.
+    fnol:
+      exposed: false
+      partial: true
+      note: |
+        Claims data moves, but inbound only and partner-only. The Aviva Broker
+        API (2024-12-13) pushes claim records and status updates from Aviva into
+        a broker's Acturis system. It is not FNOL submission by a third party and
+        is not self-serve.
+    audience: partner-only
+  authModel: |
+    Not published. No documented API key, OAuth2 client-credentials, OAuth2
+    authorization-code, mTLS or SAML flow. No OpenID Connect discovery document
+    is served on any Acturis host probed. Platform access for brokers is a
+    tenant login to the hosted Acturis system; system-to-system connections are
+    provisioned under commercial agreement.
+  webhooks:
+    published: false
+    note: No event catalog, no AsyncAPI, no webhook documentation. The Aviva
+      claims feed is described as a one-way push into the broker's Acturis
+      system but is not documented as a subscribable event API.
+  postman:
+    published: false
+    note: No public Postman workspace or collection found.
+  graphQL:
+    published: false
+  grpc:
+    published: false
+  transports:
+  - protocol: HTTPS Web
+    scheme: https
+    baseURL: https://www.acturis.com/
+    documented: true
+    note: Marketing site only.
+  - protocol: REST
+    documented: false
+    note: Marketing copy claims an "API-enabled platform" and "API capabilities"
+      but no REST base URL, endpoint or reference is published.
+  - protocol: Partner integration (imarket / insurer extranet / bilateral API)
+    documented: false
+    gated: true
+    note: The real integration surface. Provisioned commercially through Acturis
+      Account Managers, insurer partners, or Polaris imarket.
+  - protocol: GraphQL
+    documented: false
+  - protocol: gRPC
+    documented: false
+  - protocol: WebSocket
+    documented: false
+  gated: true
+sources:
+- url: https://www.acturis.com/about-acturis/
+  type: About
+  status: 200
+  note: Founded 2000 by David McDonald and Theo Duchen; Acturis Ltd company number
+    3998084; timeline includes "May 2005 Acturis facilitates first insurer
+    integration with industry portal iMarket".
+- url: https://www.acturis.com/insurer/
+  type: Documentation
+  status: 200
+  note: Source of the "API-enabled platform" marketing claim.
+- url: https://www.acturis.com/commercial-lines-broking/
+  type: Documentation
+  status: 200
+  note: Source of the "our API capabilities and two-way integration with third
+    parties" marketing claim.
+- url: https://www.acturis.com/product/
+  type: Documentation
+  status: 200
+  note: Product modules — e-trade, policy administration, claims, document
+    management, digital distribution. No API detail.
+- url: https://www.acturis.com/blog/2024/12/13/aviva-and-acturis-launch-ground-breaking-broker-api-to-simplify-claims-process/
+  type: Blog
+  status: 200
+  note: The only named API. Partner-only enablement, no technical specification.
+- url: https://acturisgroup.com/
+  type: ParentOrganization
+  status: 200
+  note: Seven group companies including Acturis SaaS (UK, 32,000+ users), Acturis
+    Deutschland, Acturis France, Acturis Canada and ICE-Tech.
+- url: https://www.polaris.co.uk/acturis/
+  type: Standards
+  status: 200
+  note: Polaris imarket page for Acturis brokers; insurer panel named, no
+    technical/API detail on the page itself.
+- url: https://csio.com/news/acturis-canada-inc-earns-csios-api-security-standards-certification-and-gold-standards
+  type: Certification
+  status: 200
+  note: 2026-01-26 — Acturis Canada earns CSIO API Security Standards
+    Certification; overall Standards Certification Rating raised to Gold. CSIO
+    XML Standard is licensed to CSIO by ACORD.
+actions:
+  apisYmlUpdated: true
+  apisListed: 0
+  openapiPath: null
+  reason: |
+    apis[] is intentionally empty. Acturis publishes no documented, addressable,
+    public API, so listing one would be fabrication. This is the correct and
+    expected record for a UK broker-platform vendor: the integration exists and
+    is heavily used, but it is sold, not published.

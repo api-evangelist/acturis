@@ -2,17 +2,20 @@
   "repo": "acturis",
   "feeds": [
     {
-      "source": "https://www.acturis.com/accessibility-statement/",
-      "error": "HTTPError"
-    },
-    {
       "source": "https://www.acturis.com/news/",
-      "feed_url": "https://www.acturis.com/news/",
+      "feed_url": "https://www.acturis.com/news/feed/",
       "title": "",
       "saved": 0,
-      "method": "none"
+      "method": "discovered"
+    },
+    {
+      "source": "https://www.acturis.com/accessibility-statement/",
+      "feed_url": "https://www.acturis.com/accessibility-statement/feed/",
+      "title": "",
+      "saved": 0,
+      "method": "discovered"
     }
   ],
   "post_count": 0,
-  "fetched": "2026-08-01T15:49:00Z"
+  "fetched": "2026-08-06T14:08:46Z"
 }

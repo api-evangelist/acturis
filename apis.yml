@@ -39,6 +39,17 @@ image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.j
 tags:
 - Insurance
 - United Kingdom
+- Brokers
+- Agency Management
+- Policy Administration
+- Claims
+- Property and Casualty
+- Insurtech
+- E-Trade
+- MGA
+tags_raw:
+- Insurance
+- United Kingdom
 - Broker
 - Agency Management
 - Policy Administration

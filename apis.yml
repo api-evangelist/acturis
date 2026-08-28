@@ -23,6 +23,17 @@ description: >-
   bilateral work such as the Aviva claims Broker API launched in December 2024,
   which brokers enable through an Aviva Claims Service Manager or an Acturis
   Account Manager rather than through any public signup.
+deliveryModel:
+  model: unknown
+  open_source: false
+  commercial: false
+  callable_host: false
+  label: Delivery model not determined — needs a product licence on record
+  confidence: low
+  source:
+  - none
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: contact-sales
   onboarding: partner-gated

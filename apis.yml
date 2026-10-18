@@ -50,7 +50,7 @@ image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.j
 tags:
 - Insurance
 - United Kingdom
-- Brokers
+- Brokerage
 - Agency Management
 - Policy Administration
 - Claims
@@ -69,6 +69,7 @@ tags_raw:
 - Insurtech
 - E-Trade
 - MGA
+- Brokers
 created: '2026-07-25'
 modified: '2026-07-25'
 specificationVersion: '0.23'

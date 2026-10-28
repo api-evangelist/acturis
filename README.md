@@ -1,4 +1,4 @@
-# Acturis (acturis)
+# Acturis
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -64,67 +64,82 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Acturis is a United Kingdom insurance software company founded in 2000 by David McDonald and Theo Duchen, operating the UK's leading multi-tenant SaaS platform for general insurance brokers, insurers and MGAs. The Acturis system covers commercial and personal lines broking, e-trade and digital distribution, policy administration, claims, document management, premium finance and accounting, and it builds and runs eight of the top ten UK insurer extranets. Acturis Group extends the platform into Germany, France and Canada (through the acquisitions of Power Broker and Brovada) and reports over 100,000 users across more than 40 countries.
+Acturis is a United Kingdom insurance software company founded in 2000 by David McDonald and Theo Duchen, operating the UK's leading multi-tenant SaaS platform for general insurance brokers, insurers and MGAs. The Acturis system covers commercial and personal lines broking, e-trade and digital distribution, policy administration, claims, document management, premium finance and accounting, and it builds and runs eight of the top ten UK insurer extranets. Acturis Group extends the platform into Germany, France and Canada (through the acquisitions of Power Broker and Brovada) and reports over 100,000 users across more than 40 countries. Its API posture is partner-gated and honestly not developer-facing: acturis.com markets an "API-enabled platform" and "API capabilities" but publishes no developer portal, no API reference, no OpenAPI or Swagger definition, and no self-serve onboarding. developer.acturis.com, developers.acturis.com, docs.acturis.com and api.acturis.com do not resolve, and /developers, /api, /developer and /integrations all return 404. Real integration happens through commercial agreements — insurer extranet and e-trade connections, the Polaris imarket digital-trading standards Acturis has traded on since 2005, and named bilateral work such as the Aviva claims Broker API launched in December 2024, which brokers enable through an Aviva Claims Service Manager or an Acturis Account Manager rather than through any public signup.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/acturis/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/acturis/refs/heads/main/apis.yml)
+**Areas:** Insurance · United Kingdom · Brokerage · Agency Management · Policy Administration · Claims · Property and Casualty · Insurtech · E-Trade · MGA
 
-## Tags
+## Acturis on APIs.io
 
-- Insurance
-- United Kingdom
-- Broker
-- Agency Management
-- Policy Administration
-- Claims
-- Property and Casualty
-- Insurtech
-- E-Trade
-- MGA
+Everything profiled for Acturis is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/acturis/](https://apis.io/providers/acturis/)** — or go straight to one of the APIs or properties below.
 
-## Timestamps
+### Published properties
 
-- **Created:** 2026-07-25
-- **Modified:** 2026-07-25
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### Security (1)
 
-**None listed — and that is the finding.**
+Authentication, trust centre, and vulnerability disclosure.
 
-Acturis publishes no public developer portal and no downloadable API definitions. `developer.acturis.com`, `developers.acturis.com`, `docs.acturis.com` and `api.acturis.com` do not resolve; `/developers`, `/developer`, `/api` and `/integrations` all return 404. There is not even a login wall to record — there is simply no developer surface.
+- [Acturis Domain Security](https://apis.io/security/acturis/acturis-domain-security/)
 
-The word "API" appears on acturis.com only as marketing adjective — "our API-enabled platform will integrate seamlessly with any existing or future systems you use" (insurer page) and "our API capabilities and two-way integration with third parties" (commercial lines page) — with no reference documentation behind either claim.
+## Where to find this API
 
-The only concretely named API is the **Aviva claims Broker API**, announced 2024-12-13: a one-way transfer of individual claim records and updates from Aviva's claims system into a broker's Acturis system, covering personal and commercial lines motor, property and liability claims. It is free to brokers but enabled through an Aviva Claims Service Manager or an Acturis Account Manager — partner registration, not signup — and no endpoints, payloads, authentication scheme or specification are published.
-
-Because no real specification exists, this repo has no `openapi/` directory. Nothing was reconstructed.
-
-## Standards posture
-
-The UK has no open-insurance obligation, so the machine-readable layer under UK broking is not a regulator's API. It is **Polaris Standards** and the **imarket** digital-trading service — code lists, question sets, data dictionaries, and messaging in EDI, XML and JSON. Acturis has traded on this since "May 2005 Acturis facilitates first insurer integration with industry portal iMarket," and Polaris lists Acturis among the integrated broker systems.
-
-**ACORD posture:** no ACORD reference found on acturis.com. ACORD lineage reaches Acturis only through the Canadian arm — Acturis Canada earned CSIO's API Security Standards Certification on 2026-01-26 and raised its overall CSIO Standards Certification Rating to Gold, and the CSIO XML Standard is licensed to CSIO by ACORD.
-
-## Quote / bind / issue / FNOL
-
-| Verb | Publicly exposed | Notes |
-| --- | --- | --- |
-| Quote | No | Comparative quoting runs inside the Acturis UI and via imarket. |
-| Bind | No | E-trade bind is a platform function behind a broker login. |
-| Issue | No | Policy administration and document issue are platform functions. |
-| FNOL | No (partial, inbound) | The Aviva Broker API pushes claim records *into* Acturis; it is not third-party FNOL submission and is not self-serve. |
-
-Audience for every path above: **partner-only**.
-
-## Links
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
 - [Website](https://www.acturis.com/)
-- [About Acturis](https://www.acturis.com/about-acturis/)
-- [Product](https://www.acturis.com/product/)
-- [News](https://www.acturis.com/news/)
-- [Contact](https://www.acturis.com/contact/)
-- [Acturis Group](https://acturisgroup.com/)
-- [LinkedIn](https://www.linkedin.com/company/acturis)
+- [Blog](https://www.acturis.com/news/)
+- [Compliance](https://www.acturis.com/product/)
+- [Privacy policy](https://www.acturis.com/acturis-privacy-policy/)
 
-## Review
+## API Evangelist rating
 
-See [review.yml](review.yml) for the full probe log, HTTP statuses, standards posture, auth model, and sources.
+**Kin Score 12.0** — emerging · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 55.4 |
+| Contract quality | 0.0 |
+| Contract governance | 18.2 |
+| Operational transparency | 0.0 |
+| Developer ergonomics | 2.4 |
+| Access clarity | 18.4 |
+
+**Agent readiness 0.0** — human-only
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | — |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | — |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | — |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 17.5** — Insurance
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/acturis/](https://apis.io/providers/acturis/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Acturis: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/acturis/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
